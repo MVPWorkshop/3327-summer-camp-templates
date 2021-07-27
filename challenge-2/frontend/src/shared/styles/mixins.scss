@@ -1,0 +1,11 @@
+@import "variables";
+
+@function pxToRem($value){
+  @return ($value / $defaultFontSize) + rem
+}
+
+@mixin removeButtonDefaultStyles {
+  border: none;
+  background: none;
+  outline: none;
+}
