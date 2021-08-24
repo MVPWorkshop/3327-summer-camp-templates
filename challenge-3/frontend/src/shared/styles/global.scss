@@ -1,0 +1,19 @@
+@import './variables';
+
+html, body {
+  font-family: 'Roboto';
+  font-size: $defaultFontSize;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+body {
+  background: rgb(205,205,205);
+  background: linear-gradient(184deg, rgba(205,205,205,1) 0%, rgba(86,255,240,1) 46%, rgba(36,218,255,1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

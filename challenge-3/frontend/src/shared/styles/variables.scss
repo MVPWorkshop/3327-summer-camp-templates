@@ -1,0 +1,17 @@
+$colors: (
+  'white': #FFFFFF,
+  'black': #000000,
+  'blue': #147f8f,
+  'darkGray': #767676,
+  'gray': #ececec,
+  'lightGray': #f9f9f9
+);
+
+$accents: (
+  'primary': map-get($colors, 'blue'),
+  'secondary': map-get($colors, 'darkGray'),
+  'tertiary': map-get($colors, 'gray'),
+);
+
+$defaultFontSize: 16px;
+$backgroundColor: map-get($colors, 'lightGray')

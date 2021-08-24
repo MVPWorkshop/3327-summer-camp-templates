@@ -1,0 +1,12 @@
+@import '../../../shared/styles/variables';
+
+.separator {
+  &.vertical {
+    border-right: 2px solid map-get($colors, 'gray');
+  }
+
+  &.horizontal {
+    width: 100%;
+    border-top: 2px solid map-get($colors, 'gray');
+  }
+}

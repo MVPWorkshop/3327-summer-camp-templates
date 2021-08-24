@@ -1,0 +1,13 @@
+@import '../../../shared/styles/variables';
+
+.campaignCard {
+  width: 250px;
+  min-height: 300px;
+  box-shadow: 0 0 15px map-get($colors, 'darkGray');
+
+  .coverImage {
+    width: 100%;
+    max-height: 100px;
+    object-fit: cover;
+  }
+}

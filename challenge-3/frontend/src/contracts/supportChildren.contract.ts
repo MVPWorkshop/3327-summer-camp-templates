@@ -102,10 +102,16 @@ class SupportChildrenContract {
     return this.callContractMethod<ICampaignContractStruct>(EContractMethods.GET_CAMPAIGN, [id])
   }
 
-  public async createCampaign(beneficiary: string, endTimestamp: number, uri: string): Promise<number> {
+  public async createCampaign(
+    beneficiary: string,
+    endTimestamp: number,
+    uri: string,
+    wantToken: string,
+    hardCap: number
+  ): Promise<number> {
     return this.sendContractMethod(
       EContractMethods.CREATE_CAMPAIGN,
-      [beneficiary, endTimestamp, uri],
+      [beneficiary, endTimestamp, uri, wantToken, hardCap],
       {
         eventName: "CampaignCreated",
         returnValueOfEvent: "campaignId"

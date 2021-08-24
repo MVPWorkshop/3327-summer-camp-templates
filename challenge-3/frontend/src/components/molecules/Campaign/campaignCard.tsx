@@ -36,7 +36,7 @@ const CampaignCard: React.FC<ICampaignProps> = (props) => {
       const supportChildren = new SupportChildrenContract(SupportChildrenAbi as AbiItem[], SUPPORT_CHILDREN_CONTRACT_ADDRESS);
 
       await supportChildren.donateETH(id, ethValue);
-    } catch (e) {}
+    } catch (e) {console.log(e)}
 
     setIsDonating(false)
   }
