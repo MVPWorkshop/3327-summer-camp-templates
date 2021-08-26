@@ -203,7 +203,7 @@ contract SupportChildren is Ownable, ISupportChildren {
             payable(_beneficiary).transfer(_finalDonationAmount);
             campaigns[_campaignId].receivedAmount += _finalDonationAmount;
 
-            if (_finalDonationAmount != _amountIn) { // hardcap surpassed
+            if (_amountIn > _finalDonationAmount) {
                 payable(msg.sender).transfer(_amountIn - _finalDonationAmount);
             }
 
@@ -245,7 +245,7 @@ contract SupportChildren is Ownable, ISupportChildren {
         );
 
         uint[] memory _swapReturnValues =
-        IUniswapV2Router02(v2router).swapExactETHForTokens {value : _finalDonationAmount}(
+        IUniswapV2Router02(v2router).swapExactETHForTokens{value: _finalDonationAmount}(
             _maxDonationAmountInWantTokens.mul(9500).div(10000),
             path,
             _beneficiary,
@@ -257,6 +257,10 @@ contract SupportChildren is Ownable, ISupportChildren {
         }
 
         campaigns[_campaignId].receivedAmount += _swapReturnValues[1];
+
+        if (_amountIn > _finalDonationAmount) {
+            payable(msg.sender).transfer(_amountIn - _finalDonationAmount);
+        }
 
         emit Donation(_campaignId, _swapReturnValues[1], address(0));
         return;
